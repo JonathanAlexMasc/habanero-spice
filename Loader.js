@@ -2,11 +2,9 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
-const { updateElectronApp } = require('update-electron-app');
+const autoUpdater = require("electron-updater");
 
-let win;
-
-updateElectronApp(); 
+let win; 
 
 function createWindow() {
   win = new BrowserWindow({
@@ -37,22 +35,6 @@ function loadRunPage() {
 
 app.whenReady().then(() => {
   createWindow();
-
-  autoUpdater.checkForUpdatesAndNotify();
-
-  autoUpdater.on('update-available', () => {
-    console.log('Update available.');
-  });
-
-  autoUpdater.on('update-downloaded', () => {
-    console.log('Update downloaded. Installing on quit.');
-    app.quit();
-  });
-
-  autoUpdater.on('error', (err) => {
-    console.error('Update error:', err);
-  });
-
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -64,6 +46,10 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on("ready", () => {
+	autoUpdater.checkForUpdatesAndNotify();
 });
 
 ipcMain.handle('open-file-dialog', async () => {
@@ -201,3 +187,4 @@ ipcMain.handle('load-run-page', () => {
   console.log("loading run page")
   loadRunPage();
 })
+
