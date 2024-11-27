@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/node:23.3.0-browsers
+    # Steps to the job
+    steps:
+      - checkout
+      - run: npm i -D @playwright/test
+      - run: npx playwright install
+      - run:
+          name: Run Playwright specs
+          command: npm run test
