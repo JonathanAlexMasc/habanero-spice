@@ -7,8 +7,8 @@
     "test": "playwright test",
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --mac --windows",
-    "release": "electron-builder --mac --windows --publish always"
+    "build": "electron-builder --windows",
+    "release": "electron-builder --windows --publish always"
   },
   "author": "Nick, Nathan, Mark",
   "license": "ISC",
