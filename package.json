@@ -35,6 +35,17 @@
         {
           "name": "@electron-forge/maker-zip"
         }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "JonathanAlexMasc",
+              "name": "JonathanAlexMasc"
+            }
+          }
+        }
       ]
     }
   },
