@@ -62,26 +62,31 @@ jobs:
           name: macos-artifacts
           path: out/make/zip/darwin/arm64/
 
-  windows_release:
-    needs: generate_win_exec
+  generate_release:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    needs: [generate_win_exec, generate_mac_exec]  # Wait for both builds to complete
     steps:
       - name: Download Windows Artifacts
         uses: actions/download-artifact@v3
         with:
           name: windows-artifacts
 
-      - name: Create Windows Release
+      - name: Download macOS Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: macos-artifacts
+
+      - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Windows Release ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
           body: Created using GitHub Actions
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Windows Executable to Release
         uses: actions/upload-release-asset@v1
@@ -90,27 +95,6 @@ jobs:
           asset_path: ./out/make/zip/win32/x64/
           asset_name: windows-executable.zip
           asset_content_type: application/zip
-
-  macos_release:
-    needs: generate_mac_exec
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - name: Download macOS Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: macos-artifacts
-
-      - name: Create macOS Release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: macOS Release ${{ github.ref_name }}
-          body: Created using GitHub Actions
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Upload macOS DMG to Release
         uses: actions/upload-release-asset@v1
