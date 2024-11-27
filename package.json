@@ -6,59 +6,21 @@
   "scripts": {
     "test": "playwright test",
     "start": "electron .",
-    "make": "electron-forge make",
-    "package": "electron-forge package",
     "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --mac --windows --linux",
-    "release": "electron-builder --mac --windows --linux --publish always"
+    "build": "electron-builder --mac --windows",
+    "release": "electron-builder --mac --windows --publish always"
   },
   "author": "Nick, Nathan, Mark",
   "license": "ISC",
   "devDependencies": {
-    "@electron-forge/cli": "^7.5.0",
-    "@electron-forge/maker-deb": "^7.5.0",
-    "@electron-forge/maker-dmg": "^7.5.0",
-    "@electron-forge/maker-rpm": "^7.5.0",
-    "@electron-forge/maker-squirrel": "^7.5.0",
-    "@electron-forge/maker-wix": "^7.5.0",
-    "@electron-forge/maker-zip": "^7.5.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
-    "@electron-forge/plugin-fuses": "^7.5.0",
-    "@electron-forge/publisher-electron-release-server": "^7.5.0",
     "@electron/fuses": "^1.8.0",
     "@playwright/test": "^1.48.2",
     "electron": "^30.5.1",
     "electron-builder": "^25.1.8"
   },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "osxSign": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-zip"
-        }
-      ],
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "JonathanAlexMasc",
-              "name": "JonathanAlexMasc"
-            }
-          }
-        }
-      ]
-    }
-  },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
     "electron-updater": "^6.3.9",
     "update-electron-app": "^3.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JonathanAlexMasc/habanero-spice"
   }
 }
