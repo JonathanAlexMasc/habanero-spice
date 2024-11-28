@@ -43,7 +43,8 @@
             "repository": {
               "owner": "habanero-spice",
               "name": "JonathanAlexMasc"
-            }
+            },
+            "draft": true
           }
         }
       ]
