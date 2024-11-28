@@ -8,6 +8,9 @@ jobs:
   publish_on_mac:
     runs-on: macos-latest
     steps:
+    # https://github.com/electron/forge/issues/2807
+    - run: python3 -m pip install setuptools
+    
     - uses: actions/checkout@v2
     - uses: actions/setup-node@master
       with:
