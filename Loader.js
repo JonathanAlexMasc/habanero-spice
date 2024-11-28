@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
-const { autoUpdater } = require("electron-updater");
 
 let win; 
 
@@ -46,10 +45,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
-});
-
-app.on("ready", () => {
-	autoUpdater.checkForUpdatesAndNotify();
 });
 
 ipcMain.handle('open-file-dialog', async () => {

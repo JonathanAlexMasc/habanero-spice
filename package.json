@@ -1,26 +1,57 @@
 {
   "name": "sdm-spice",
   "version": "1.0.0",
-  "description": "Spice",
+  "description": "Electronic Circuit Simulation Tool",
   "main": "Loader.js",
   "scripts": {
     "test": "playwright test",
     "start": "electron .",
-    "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --windows",
-    "release": "electron-builder --windows --publish always"
+    "make": "electron-forge make",
+    "package": "electron-forge package",
+    "publish": "electron-forge publish"
   },
   "author": "Nick, Nathan, Mark",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-dmg": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
+    "@electron-forge/plugin-fuses": "^7.5.0",
+    "@electron-forge/publisher-electron-release-server": "^7.5.0",
+    "@electron-forge/publisher-github": "^7.6.0",
     "@electron/fuses": "^1.8.0",
     "@playwright/test": "^1.48.2",
     "electron": "^30.5.1",
-    "electron-builder": "^25.1.8"
+    "electron-log": "^5.2.3"
+  },
+  "config": {
+    "forge": {
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel"
+        },
+        {
+          "name": "@electron-forge/maker-dmg"
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "habanero-spice",
+              "name": "JonathanAlexMasc"
+            }
+          }
+        }
+      ]
+    }
   },
   "dependencies": {
+    "electron-log": "^5.2.3",
     "electron-squirrel-startup": "^1.0.1",
-    "electron-updater": "^6.3.9",
-    "update-electron-app": "^3.0.0"
+    "electron-updater": "^6.3.9"
   }
 }
