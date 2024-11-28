@@ -41,8 +41,8 @@
           "name": "@electron-forge/publisher-github",
           "config": {
             "repository": {
-              "owner": "habanero-spice",
-              "name": "JonathanAlexMasc"
+              "owner": "JonathanAlexMasc",
+              "name": "habanero-spice"
             },
             "draft": true
           }
