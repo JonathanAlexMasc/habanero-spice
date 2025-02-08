@@ -5,6 +5,8 @@ const os = require('os');
 const { exec } = require('child_process');
 const { autoUpdater } = require('electron-updater');
 
+if (require('electron-squirrel-startup') === true) app.quit();
+
 let win;
 
 function createWindow() {
