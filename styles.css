@@ -1,0 +1,111 @@
+body {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    color: black;
+    background: #4A5D5E;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Ensures space is distributed between elements */
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background-color: #208649;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+header img {
+    width: 8vw;
+    /* Use percentage-based width for responsiveness */
+    height: 8vw;
+    /* Maintain aspect ratio */
+    margin-right: 15px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5% 10vw;
+    /* Adjust the padding based on screen size */
+    gap: 30px;
+    flex-grow: 1;
+    /* This will allow the section to grow and occupy available space */
+}
+
+#my_image {
+    max-width: 35vw;
+    /* Use viewport width to scale image dynamically */
+    height: auto;
+}
+
+.info {
+    color: white;
+    max-width: 80%;
+    /* Allow the text to take a larger portion of the screen */
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.content {
+    text-align: left;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    /* Allow the options section to grow */
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    /* Stack buttons vertically */
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.btn {
+    border: none;
+    background-color: #F8F8EC;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    /* Adjust padding based on content */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding does not affect button size */
+}
+
+.btn:hover {
+    background-color: #186a35;
+}
+
+footer {
+    background-color: #F8F8EC;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    width: 100%;
+    flex-shrink: 0;
+    /* Prevent the footer from shrinking */
+}

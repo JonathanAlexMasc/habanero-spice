@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habanero Spice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <section>
+        <img id="my_image" src="./assets/logo.png" alt="image error">
+        <div class="content">
+            <div class="options">
+                <p class="info">
+                    Built by Nick, Nathan, Marc, Richard, and Jonathan.
+                </p>
+                <div class="btn-group">
+                    <button id="build" class="btn" onclick="window.electron.loadBuildPage()">Build</button>
+                    <button id="run" class="btn" onclick="window.electron.loadRunPage()">Run</button>
+                    <button class="btn" onclick="window.location.href='documentation.html'">Documentation</button>
+                </div>
+                <p class="info">This open source project aims to provide a simplistic interface for circuit building for EE 120, 220, 221
+                    coursework. </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Habanero Spice Project</p>
+    </footer>
+</body>
+
+</html>
