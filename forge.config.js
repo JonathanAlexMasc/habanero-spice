@@ -2,8 +2,7 @@
 const path = require('path');
 module.exports = {
     packagerConfig: {
-        asar: true,
-        icon: path.join(process.cwd(), 'main', 'build', 'icon')
+        asar: true
     },
     rebuildConfig: {},
     makers: [
@@ -22,17 +21,13 @@ module.exports = {
         {
             name: '@electron-forge/maker-deb',
             config: {
-                bin: 'Habanero Spice',
-                options: {
-                    icon: path.join(process.cwd(), 'main', 'build', 'icon.png')
-                }
+                bin: 'Habanero Spice'
             }
         },
         {
             name: '@electron-forge/maker-rpm',
             config: {
-                bin: 'Habanero Spice',
-                icon: path.join(process.cwd(), 'main', 'build', 'icon.png')
+                bin: 'Habanero Spice'
             }
         }
     ],
